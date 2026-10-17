@@ -25,8 +25,8 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(RsdProject.MODID)
-public class RsdProject {
+@Mod(riversidecode.MODID)
+public class riversidecode {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "riversidecode";
     // Directly reference a slf4j logger
@@ -34,9 +34,9 @@ public class RsdProject {
     // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(RsdProject.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(riversidecode.MODID);
 
-    public static final DeferredItem<Item> METALROD = ITEMS.register("metal_rod_real",
+    public static final DeferredItem<Item> METALROD = ITEMS.register("metal_rod",
             () -> new Item((new Item.Properties())));
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> RSD_TAB = CREATIVE_MODE_TABS.register("rsd_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.rsd")) //The language key for the title of your CreativeModeTab
@@ -51,7 +51,7 @@ public class RsdProject {
     }
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public RsdProject(IEventBus modEventBus, ModContainer modContainer) {
+    public riversidecode(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -90,7 +90,7 @@ public class RsdProject {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
 
-            RsdProject.LOGGER.info("loaded rsd");
+            riversidecode.LOGGER.info("loaded rsd");
         }
     }
 
